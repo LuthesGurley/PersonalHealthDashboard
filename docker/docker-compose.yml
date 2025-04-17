@@ -1,4 +1,14 @@
 services:
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: ../docker/frontend.Dockerfile
+    ports:
+      - '4200:80'
+    depends_on:
+      - backend
+    networks:
+      - app-network
   backend:
     build:
       context: ../backend
