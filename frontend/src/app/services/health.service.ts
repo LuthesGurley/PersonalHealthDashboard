@@ -7,7 +7,7 @@ import { HealthMetric } from '../models/health-metric';
   providedIn: 'root'
 })
 export class HealthService {
-  private apiUrl = 'http://backend:3000/api'; // Docker service name
+  private apiUrl = 'http://backend:3000/api';
 
   constructor(private http: HttpClient) {}
 
