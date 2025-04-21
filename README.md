@@ -25,7 +25,6 @@ This project showcases a full-stack application with modern development practice
   - Record diet entries with calorie details (e.g., 600 calories).
   - Track vital measurements, such as weight (e.g., 147 lbs).
 - **Interactive Dashboard**:
-  - Dynamic weight history chart using Chart.js and ng2-charts.
   - User-friendly interface powered by Angular Material.
 - **RESTful API**:
   - Endpoints for health data management:
@@ -48,7 +47,6 @@ This project showcases a full-stack application with modern development practice
 - **Frontend**:
   - **Angular 19**: Framework for building a single-page application (SPA).
   - **Angular Material**: UI components for a polished, consistent design.
-  - **Chart.js / ng2-charts**: Libraries for interactive health charts.
   - **nginx**: Serves the Angular app and proxies API requests to the backend.
 - **Backend**:
   - **NestJS 11**: Node.js framework for scalable, efficient APIs.
