@@ -72,3 +72,4 @@ This project showcases a full-stack application with modern development practice
 ## Project Structure
 
 The repository is organized to promote clarity and modularity:
+
