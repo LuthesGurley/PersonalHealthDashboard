@@ -18,4 +18,8 @@ export class HealthService {
   getWeightHistory(): Observable<{ dates: string[], weights: number[] }> {
     return this.http.get<{ dates: string[], weights: number[] }>(`${this.apiUrl}/health/weight`);
   }
+
+  getHealthMetrics(): Observable<HealthMetric[]> {
+    return this.http.get<HealthMetric[]>(`${this.apiUrl}/health`);
+  }
 }
