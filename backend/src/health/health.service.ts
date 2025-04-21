@@ -8,7 +8,10 @@ import { CreateHealthMetricDto, UpdateHealthMetricDto } from './dto/health-metri
 export class HealthService {
   private readonly logger = new Logger(HealthService.name);
 
-  constructor(@InjectModel(HealthMetric.name) private healthMetricModel: Model<HealthMetric>) {}
+  constructor(
+    @InjectModel(HealthMetric.name, 'healthdb')
+    private healthMetricModel: Model<HealthMetric>
+  ) {}
 
   async findAll(page: number = 1, limit: number = 10): Promise<{ data: HealthMetric[]; total: number }> {
     try {

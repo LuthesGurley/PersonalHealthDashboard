@@ -1,26 +1,6 @@
+version: '3.8'
+
 services:
-  frontend:
-    build:
-      context: ../frontend
-      dockerfile: ../docker/frontend.Dockerfile
-    ports:
-      - '4200:80'
-    depends_on:
-      - backend
-    networks:
-      - app-network
-  backend:
-    build:
-      context: ../backend
-      dockerfile: ../docker/backend.Dockerfile
-    ports:
-      - '3000:3000'
-    environment:
-      - MONGODB_URI=mongodb://mongo:27017/healthdb
-    depends_on:
-      - mongo
-    networks:
-      - app-network
   mongo:
     image: mongo:latest
     ports:
@@ -29,8 +9,10 @@ services:
       - mongo-data:/data/db
     networks:
       - app-network
+
 volumes:
   mongo-data:
+
 networks:
   app-network:
     driver: bridge

@@ -1,32 +1,42 @@
-import { Controller, Get, Post, Put, Delete, Body, Param, HttpCode, Query } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param, Query, HttpCode } from '@nestjs/common';
 import { HealthService } from './health.service';
 import { HealthMetric } from './models/health-metric.schema';
 import { CreateHealthMetricDto, UpdateHealthMetricDto } from './dto/health-metric.dto';
 
-@Controller('api/health')
+@Controller('health')
 export class HealthController {
   constructor(private readonly healthService: HealthService) {}
 
-  @Get()
-  async findAll(
-    @Query('page') page: number = 1,
-    @Query('limit') limit: number = 10,
-  ): Promise<{ data: HealthMetric[]; total: number }> {
-    return this.healthService.findAll(page, limit);
+  @Get('summary')
+  async getSummary(): Promise<{ avgWeight: number; totalCalories: number }> {
+    return this.healthService.getSummary();
   }
 
-  @Get(':id')
-  async findById(@Param('id') id: string): Promise<HealthMetric> {
-    return this.healthService.findById(id);
+  @Get('weight')
+  async getWeightHistory(): Promise<{ dates: string[]; weights: number[] }> {
+    return this.healthService.findWeightHistory();
+  }
+
+  @Get()
+  async findAll(
+    @Query('page') page: string = '1',
+    @Query('limit') limit: string = '10'
+  ): Promise<{ data: HealthMetric[]; total: number }> {
+    return this.healthService.findAll(+page, +limit);
   }
 
   @Get('types/:type')
   async findByType(
     @Param('type') type: string,
-    @Query('page') page: number = 1,
-    @Query('limit') limit: number = 10,
+    @Query('page') page: string = '1',
+    @Query('limit') limit: string = '10'
   ): Promise<{ data: HealthMetric[]; total: number }> {
-    return this.healthService.findByType(type, page, limit);
+    return this.healthService.findByType(type, +page, +limit);
+  }
+
+  @Get(':id')
+  async findById(@Param('id') id: string): Promise<HealthMetric> {
+    return this.healthService.findById(id);
   }
 
   @Post()
@@ -36,7 +46,10 @@ export class HealthController {
   }
 
   @Put(':id')
-  async update(@Param('id') id: string, @Body() metric: UpdateHealthMetricDto): Promise<HealthMetric> {
+  async update(
+    @Param('id') id: string,
+    @Body() metric: UpdateHealthMetricDto
+  ): Promise<HealthMetric> {
     return this.healthService.update(id, metric);
   }
 
@@ -44,15 +57,5 @@ export class HealthController {
   @HttpCode(204)
   async delete(@Param('id') id: string): Promise<void> {
     return this.healthService.delete(id);
-  }
-
-  @Get('weight')
-  async findWeightHistory(): Promise<{ dates: string[]; weights: number[] }> {
-    return this.healthService.findWeightHistory();
-  }
-
-  @Get('summary')
-  async getSummary(): Promise<{ avgWeight: number; totalCalories: number }> {
-    return this.healthService.getSummary();
   }
 }

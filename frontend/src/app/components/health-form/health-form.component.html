@@ -1,14 +1,21 @@
 <form [formGroup]="healthForm" (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="fill">
-      <mat-label>Type</mat-label>
-      <mat-select formControlName="type">
-        <mat-option value="diet">Diet</mat-option>
-        <mat-option value="vitals">Vitals</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>{{healthForm.value.type === 'diet' ? 'Calories' : 'Weight (lbs)'}}</mat-label>
-      <input matInput formControlName="value" type="number">
-    </mat-form-field>
-    <button mat-raised-button color="primary" type="submit" [disabled]="healthForm.invalid">Log</button>
-  </form>
+  <mat-form-field appearance="fill">
+    <mat-label>Type</mat-label>
+    <mat-select formControlName="type">
+      <mat-option value="diet">Diet</mat-option>
+      <mat-option value="vitals">Vitals</mat-option>
+      <mat-option value="exercise">Exercise</mat-option>
+      <mat-option value="sleep">Sleep</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>
+      {{ healthForm.value.type === 'diet' ? 'Calories (kcal)' : 
+         healthForm.value.type === 'vitals' ? 'Weight (lbs)' : 
+         healthForm.value.type === 'exercise' ? 'Duration (min)' : 
+         'Hours Slept' }}
+    </mat-label>
+    <input matInput formControlName="value" type="number" min="1">
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit" [disabled]="healthForm.invalid">Log</button>
+</form>
