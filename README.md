@@ -48,7 +48,6 @@ This project showcases a full-stack application with modern development practice
 - **Frontend**:
   - **Angular 19**: Framework for building a single-page application (SPA).
   - **Angular Material**: UI components for a polished, consistent design.
-  - **Chart.js / ng2-charts**: Libraries for interactive health charts.
   - **nginx**: Serves the Angular app and proxies API requests to the backend.
 - **Backend**:
   - **NestJS 11**: Node.js framework for scalable, efficient APIs.
