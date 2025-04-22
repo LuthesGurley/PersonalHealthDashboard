@@ -1,5 +1,6 @@
 export interface HealthMetric {
-    type: 'diet' | 'exercise' | 'sleep' | 'vitals';
-    value: any;
-    date?: string;
-  }
+  _id: string; 
+  type: 'diet' | 'exercise' | 'sleep' | 'vitals';
+  value: any;
+  date?: string;
+}

@@ -4,7 +4,9 @@ import { HealthModule } from './health/health.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://mongo:27017/healthdb'),
+    MongooseModule.forRoot('mongodb://localhost:27017/healthdb', {
+      connectionName: 'healthdb',
+    }),
     HealthModule,
   ],
 })
