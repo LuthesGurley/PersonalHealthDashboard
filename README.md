@@ -1,6 +1,6 @@
 # Personal Health Dashboard
 
-The **Personal Health Dashboard** is a locally-hosted web application designed to help users track and visualize personal health metrics, such as diet (calorie intake) and vitals (weight), in a private and secure environment. Running entirely on the user's machine, it ensures data privacy while providing a modern, responsive interface for logging health data and viewing trends through interactive charts, such as weight history over time. Built with a robust tech stack, the project integrates Angular for the frontend, NestJS for the backend, MongoDB for data storage, and Docker for containerized deployment, all automated via a Jenkins CI/CD pipeline.
+The **Personal Health Dashboard** is a locally-hosted web application designed to help users track and visualize personal health metrics, such as diet (calorie intake) and vitals (weight), in a private and secure environment. Running entirely on the user's machine, it ensures data privacy while providing a modern, responsive interface for logging health data and viewing trends through a table displaying the measured metrics. Built with a robust tech stack, the project integrates Angular for the frontend, NestJS for the backend, MongoDB for data storage, and Docker for containerized deployment, all automated via a Jenkins CI/CD pipeline.
 
 The application enables users to log health entries, interact with a RESTful API for data management, and visualize their health progress, making it ideal for those seeking a self-contained, privacy-focused health tracking solution without cloud dependencies.
 
@@ -10,7 +10,7 @@ The application enables users to log health entries, interact with a RESTful API
 
 The Personal Health Dashboard was developed with the following goals:
 - **Health Tracking**: Allow users to easily log diet and vital statistics.
-- **Data Visualization**: Provide intuitive charts to monitor health trends, like weight changes.
+- **Data Visualization**: Provide intuitive table display to monitor health trends, like weight changes.
 - **Privacy and Security**: Keep all data local to the user’s machine for full control.
 - **Automation**: Streamline development, testing, and deployment with a CI/CD pipeline.
 - **Modular Design**: Separate frontend, backend, and database for maintainability.
