@@ -52,7 +52,7 @@ import { CommonModule } from '@angular/common';
 
     .header {
       justify-content: center;
-      background-color: #1976d2; /* Primary blue */
+      background-color: #1976d2;
       color: white;
       padding: 0 16px;
       min-height: 64px;
@@ -66,7 +66,7 @@ import { CommonModule } from '@angular/common';
 
     .sidebar {
       width: 200px;
-      background-color: #263238; /* Dark slate */
+      background-color: #263238;
       color: white;
       height: 100%;
       padding: 16px 0;
@@ -77,12 +77,12 @@ import { CommonModule } from '@angular/common';
     }
 
     .sidebar .active {
-      background-color: #37474f; /* Lighter slate for active item */
+      background-color: #37474f;
     }
 
     .content-wrapper {
       flex: 1;
-      background-color: #f5f5f5; /* Light gray background */
+      background-color: #f5f5f5;
       overflow: auto;
       padding: 24px;
       display: flex;
@@ -94,7 +94,7 @@ import { CommonModule } from '@angular/common';
 
     .footer {
       justify-content: center;
-      background-color: #455a64; /* Darker slate */
+      background-color: #455a64;
       color: white;
       padding: 0 16px;
       min-height: 48px;

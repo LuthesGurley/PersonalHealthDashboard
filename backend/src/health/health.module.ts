@@ -6,10 +6,7 @@ import { HealthMetric, HealthMetricSchema } from './models/health-metric.schema'
 
 @Module({
   imports: [
-    MongooseModule.forFeature(
-      [{ name: HealthMetric.name, schema: HealthMetricSchema }],
-      'healthdb'
-    ),
+    MongooseModule.forFeature([{ name: HealthMetric.name, schema: HealthMetricSchema }]),
   ],
   controllers: [HealthController],
   providers: [HealthService],
